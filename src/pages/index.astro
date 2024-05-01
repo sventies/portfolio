@@ -6,9 +6,15 @@ USe Details for collapsible content:
         <p>This is the full content that is revealed when a user clicks on the summary</p>
       </details>
 
+      Colors: 
+      DE5D40 red
+      fffc32 yellow
+      3D657F blue
+      4b3f72 purple
 */
 
 import Layout from "../layouts/Layout.astro";
+import Underline from "./underline.astro";
 ---
 
 <Layout title="Hi, I'm Sven">
@@ -24,23 +30,26 @@ import Layout from "../layouts/Layout.astro";
         </select>
       </h1>
       <p>
-        I'm a software developer with a background in engineering. I'm currently building
-        <a href="https://sitopie.com">Sitopie</a>. Before that, I worked on engineering and financial applications.
+        I'm a software developer with an education in engineering. I'm currently building
+        <a href="https://sitopie.com">Sitopie</a>. Before that, I worked on several engineering and financial
+        applications.
       </p>
       <p>
         If you'll work with me, I'll build you a proof of concept in a matter of days or weeks and we take it from
         there. This means no big upfront costs.
       </p>
-      <p>If you are interested to learn more, reach out.</p>
+      <p>If you want to learn more, reach out.</p>
       <h2>Selected work:</h2>
       <ul>
-        <li>Icon Generator</li>
-        <li>Sitopie</li>
-        <li>IVO Finance</li>
-        <li>Windfarm Analysis</li>
-        <li>DPG App</li>
-        <li>Packhunt</li>
-        <li>Ampelmann</li>
+        <li>
+          Icon Generator <Underline />
+        </li>
+        <li>Sitopie <Underline /></li>
+        <li>IVO Finance <Underline /></li>
+        <li>Windfarm Analysis <Underline /></li>
+        <li>DPG App <Underline /></li>
+        <li>Packhunt <Underline /></li>
+        <li>Ampelmann <Underline /></li>
       </ul>
       <details>
         <summary>Click to toggle content</summary>
@@ -51,18 +60,13 @@ import Layout from "../layouts/Layout.astro";
         <p>This is the full content that is revealed when a user clicks on the summary</p>
       </details>
     </div>
-    <svg style="border:1px solid blue;" stroke="black" stroke-width="1px" fill="none" width="500" height="20">
-      <line x1="0" y1="10" x2="320" y2="10"></line>
-      <path d="M0 10 c 100 3, 100 -5, 300 0"></path>
-      <path d="M0 10 c 10 -3, 30 5, 120 0 c 10 -3, 30 2, 100 0 c 40 3, 30 -4, 80 0"></path>
-    </svg>
   </main>
 </Layout>
 
-<style>
+<style is:global>
   select {
     padding: 2px;
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     background-color: transparent;
     border-radius: 4px;
     border: 2px solid #fffc32;
@@ -94,10 +98,23 @@ import Layout from "../layouts/Layout.astro";
     border-right: 4px solid #fffc32;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+    position: relative;
+  }
+
+  li .stripe {
+    /* border: 3px solid blue; */
+    visibility: hidden;
+    /* fill: red; */
+    /* border: 4px solid yellow !important; */
   }
 
   li:hover {
     background: #fffc32;
+  }
+
+  li:hover .stripe {
+    visibility: visible;
   }
 
   h2 {
